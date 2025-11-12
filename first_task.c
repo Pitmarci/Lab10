@@ -23,8 +23,28 @@ Complete the program to print the first 10 elements of the sequences! For arithm
 
 #include <stdio.h>
 
-int main(){
+int arSeq(int n, int start, int diff){
+  if(n != 0)
+    return arSeq(n-1, start+diff, diff);
+  else
+    return start;
+}
 
+int geSeq(int n, int start, int q){
+  if(n != 0)
+    return geSeq(n-1, start*q, q);
+  else 
+    return start;
+}
+
+int main(){
+  for(int i = 0; i < 10; i++){
+    printf("%d\t",arSeq(i, 1, 5));
+  }
+  printf("\n");
+  for(int i = 0; i < 10; i++){
+    printf("%d\t",geSeq(i, 2, 2));
+  }
 
   return 0;
 }

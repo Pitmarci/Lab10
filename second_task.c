@@ -11,7 +11,18 @@ Use the debugger to trace the stack!
 
 #include <stdio.h>
 
+int fib(int n, int a, int b){
+    if(n==0)
+        return a;
+    if(n==1)
+        return b;
+    if(n>1)
+        return fib(n-1, a, b)+fib(n-2, a, b);
+}
+
 int main(){
+    for(int i = 0; i < 40; i++)
+        printf("%d\t",fib(i, 0, 1));
 
 return 0;
 }
